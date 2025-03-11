@@ -1,6 +1,7 @@
 package org.toadtime.jeetoad.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,20 +14,21 @@ public class Toad {
     @Setter
     @Getter
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Setter
     @Getter
     private int age;
     @Getter
     @Setter
+    @NotBlank
     private String name;
     @Setter
     @Getter
     private int weight;
     @Getter
     @Setter
-    private Character gender;
+    private char gender;
     @Size(max = 1000)
     @Getter
     @Setter
@@ -36,9 +38,9 @@ public class Toad {
     private LocalDate birthday;
 
 
-    public Toad() {
-        //default constructo
-    }
+//    public Toad() {
+//        //default constructo
+//    }
 
 
     @Override

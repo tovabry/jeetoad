@@ -3,19 +3,15 @@ CREATE SEQUENCE IF NOT EXISTS Toad_seq START WITH 1 INCREMENT BY 50;
 
 CREATE TABLE Toad
 (
-    id          BIGINT NOT NULL,
-    age         INTEGER default 0,
-    name        VARCHAR(255) default '',
-    weight      INTEGER default 0,
-    gender      CHAR default '',
-    description VARCHAR(1000) default '',
-    birthday    date default
+    id          BIGINT  NOT NULL,
+    age         INTEGER NOT NULL,
+    name        VARCHAR(255),
+    weight      INTEGER NOT NULL,
+    gender      CHAR    NOT NULL,
+    description VARCHAR(1000),
+    birthday    date,
     CONSTRAINT pk_toad PRIMARY KEY (id)
 );
-CREATE SEQUENCE IF NOT EXISTS Toad_seq START WITH 1 INCREMENT BY 50;
 
-ALTER TABLE Toad
-    ALTER COLUMN age SET NOT NULL;
+DROP TABLE Toad;
 
-ALTER TABLE Toad
-    ALTER COLUMN weight SET NOT NULL;

@@ -6,6 +6,8 @@ import org.toadtime.jeetoad.entity.Toad;
 
 public class ToadMapper {
 
+    private ToadMapper() {}
+
     public static ToadResponse map(Toad toad) {
         if(toad == null)
             return null;
