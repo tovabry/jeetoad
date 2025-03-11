@@ -5,6 +5,7 @@ import org.toadtime.jeetoad.rules.ValidToad;
 
 import java.time.LocalDate;
 
+@ValidToad()
 public record CreateToad(
         @NotBlank @NotNull String name,
         @Positive(message = "age must be positive")

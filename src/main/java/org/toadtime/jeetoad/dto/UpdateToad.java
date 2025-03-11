@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 
 public record UpdateToad (
-@NotBlank @NotNull String name,
+String name,
 @Positive(message = "age must be positive")
 int age,
 char gender,

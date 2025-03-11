@@ -1,8 +1,6 @@
 package org.toadtime.jeetoad.presentation;
 
 import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.*;
@@ -14,7 +12,6 @@ import org.toadtime.jeetoad.dto.ResponseDto;
 import org.toadtime.jeetoad.dto.CreateToad;
 import org.toadtime.jeetoad.dto.ToadResponse;
 import org.toadtime.jeetoad.entity.Toad;
-
 import org.toadtime.jeetoad.dto.UpdateToad;
 
 
@@ -44,6 +41,13 @@ public class ToadResource {
     @Produces(MediaType.APPLICATION_JSON)
     public ToadResponse getOneToad(@PathParam("id") Long id) {
         return toadService.getToadById(id);
+    }
+
+    @GET
+    @Path("{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public ToadResponse getOneToadByName(@PathParam("name") String name) {
+        return toadService.getToadByName(name);
     }
 
     @POST

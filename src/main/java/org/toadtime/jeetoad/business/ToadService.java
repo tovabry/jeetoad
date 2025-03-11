@@ -27,7 +27,6 @@ public class ToadService {
 
     public ToadService(){}
 
-
     public List<ToadResponse> getAllToads() {
         return repository.findAll()
                 .map(ToadResponse::new)
@@ -40,6 +39,14 @@ public class ToadService {
                 .map(ToadResponse::new)
                 .orElseThrow(
                         () -> new NotFound("Toad with id " + id + " not found")
+                );
+    }
+
+    public ToadResponse getToadByName(String name) {
+        return repository.findByName(name)
+                .map(ToadResponse::new)
+                .orElseThrow(
+                        () -> new NotFound("Toad with name " + name + " not found")
                 );
     }
 
