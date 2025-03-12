@@ -8,11 +8,10 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import lombok.extern.java.Log;
 import org.toadtime.jeetoad.business.ToadService;
-import org.toadtime.jeetoad.dto.ResponseDto;
-import org.toadtime.jeetoad.dto.CreateToad;
-import org.toadtime.jeetoad.dto.ToadResponse;
+import org.toadtime.jeetoad.dto.*;
 import org.toadtime.jeetoad.entity.Toad;
-import org.toadtime.jeetoad.dto.UpdateToad;
+
+import java.util.List;
 
 
 @Path("toads")
@@ -35,7 +34,6 @@ public class ToadResource {
         return new ResponseDto(toadService.getAllToads());
     }
 
-
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -44,10 +42,18 @@ public class ToadResource {
     }
 
     @GET
-    @Path("{name}")
+    @Path("name/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public ToadResponse getOneToadByName(@PathParam("name") String name) {
         return toadService.getToadByName(name);
+    }
+
+    @GET
+    @Path("gender/{gender}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<ToadResponse> getOneToadByGender(@PathParam("gender") String gender) {
+        char genderChar = gender.charAt(0);
+        return toadService.getToadsByGender(genderChar);
     }
 
     @POST
@@ -64,9 +70,6 @@ public class ToadResource {
                 .header("Location", "/api/toads/" + newToad.getId())
                 .build();
     }
-
-
-
 
     @PATCH
     @Path("{id}")

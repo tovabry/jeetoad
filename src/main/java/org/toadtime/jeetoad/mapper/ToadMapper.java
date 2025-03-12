@@ -26,4 +26,16 @@ public class ToadMapper {
         newToad.setBirthday(toad.birthday());
         return newToad;
     }
+
+    public static ToadResponse toToadResponse(Toad toad) {
+        return new ToadResponse(
+                toad.getId(),
+                toad.getAge(),
+                toad.getGender(),
+                toad.getName(),
+                toad.getWeight(),
+                toad.getDescription(),
+                toad.getBirthday()
+        );
+    }
 }
