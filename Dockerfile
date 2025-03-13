@@ -1,7 +1,15 @@
 # By default, build on JDK 21 on UBI 9.
 ARG jdk=23-jre
 ARG dist=ubi9-minimal
-FROM eclipse-temurin:${jdk}-${dist}
+
+FROM maven:3-eclipse-temurin-23 AS build
+WORKDIR /opt/jeeToad
+COPY pom.xml /opt/jeeToad/
+COPY src/ /opt/jeeToad
+RUN mvn package
+
+
+FROM eclipse-temurin:${jdk}-${dist} AS prod
 
 # Wildfly and PostgreSQL versions
 ARG WILDFLY_VERSION=35.0.1.Final
@@ -56,7 +64,7 @@ COPY --chown=jboss:0 docker/entrypoint.sh /opt/jboss/
 RUN chmod +x /opt/jboss/entrypoint.sh
 
 # Copy your application WAR file
-COPY --chown=jboss:0 target/*.war ${JBOSS_HOME}/standalone/deployments/
+COPY --chown=jboss:0 --from=BUILD opt/jeeToad/target/*.war ${JBOSS_HOME}/standalone/deployments/
 
 # Set safe default environment variables
 ENV DB_HOST=db-host-placeholder \
