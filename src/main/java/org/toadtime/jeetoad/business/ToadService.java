@@ -5,26 +5,20 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.toadtime.jeetoad.dto.CreateToad;
-import org.toadtime.jeetoad.dto.PaginatedResponse;
 import org.toadtime.jeetoad.dto.ToadResponse;
 import org.toadtime.jeetoad.dto.UpdateToad;
 import org.toadtime.jeetoad.persistence.ToadRepository;
 import org.toadtime.jeetoad.entity.Toad;
 import org.toadtime.jeetoad.exceptions.NotFound;
-import org.toadtime.jeetoad.mapper.ToadMapper;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import jakarta.persistence.TypedQuery;
 
 import static org.toadtime.jeetoad.mapper.ToadMapper.*;
 
 @ApplicationScoped
 public class ToadService {
-
-    @PersistenceContext
-    private EntityManager entityManager;
 
     private ToadRepository repository;
 

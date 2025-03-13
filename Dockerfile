@@ -4,12 +4,11 @@ ARG dist=ubi9-minimal
 
 FROM maven:3-eclipse-temurin-23 AS build
 WORKDIR /opt/jeeToad
-COPY pom.xml /opt/jeeToad/
-COPY src/ /opt/jeeToad
+COPY . /opt/jeeToad
 RUN mvn package
 
 
-FROM eclipse-temurin:${jdk}-${dist} AS prod
+FROM eclipse-temurin:${jdk}-${dist}
 
 # Wildfly and PostgreSQL versions
 ARG WILDFLY_VERSION=35.0.1.Final

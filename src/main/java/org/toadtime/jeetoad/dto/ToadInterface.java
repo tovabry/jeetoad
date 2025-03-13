@@ -11,6 +11,4 @@ public interface ToadInterface {
     char gender();
     String description();
     LocalDate birthday();
-
-
 }
