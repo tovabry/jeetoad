@@ -27,12 +27,6 @@ public class Toad {
     private String description;
     private LocalDate birthday;
 
-
-//    public Toad() {
-//        //default constructo
-//    }
-
-
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;

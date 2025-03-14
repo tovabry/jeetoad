@@ -19,4 +19,5 @@ public record ToadResponse(Long id, Integer age, Character gender, String name, 
     public static ToadResponse map(Toad toad) {
         return new ToadResponse(toad.getId(), toad.getAge(), toad.getGender(), toad.getName(), toad.getWeight(), toad.getDescription(), toad.getBirthday());
     }
+
 }
