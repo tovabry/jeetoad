@@ -26,7 +26,6 @@ public class ToadService {
     public ToadService(ToadRepository toadRepository) {
         this.repository = toadRepository;
     }
-
     public ToadService(){}
 
     public List<ToadResponse> getAllToads() {
@@ -52,7 +51,7 @@ public class ToadService {
                 );
     }
 
-    public List<ToadResponse> getToadsByGender(char gender){
+    public List<ToadResponse> getToadsByGender(Character gender){
         return repository.findByGender(gender)
                 .stream()
                 .map(ToadResponse::new)
@@ -69,13 +68,13 @@ public class ToadService {
         var oldToad = repository.findById(id).orElseThrow(() -> new NotFound("Toad with id " + id + " not found"));
         if(toad.name() != null)
             oldToad.setName(toad.name());
-        if(toad.age() != 0)
+        if(toad.age() != null)
             oldToad.setAge(toad.age());
         if(toad.description() != null)
             oldToad.setDescription(toad.description());
-        if (toad.weight() != 0)
+        if (toad.weight() != null)
             oldToad.setWeight(toad.weight());
-        if (toad.gender() != 0)
+        if (toad.gender() != null)
             oldToad.setGender(toad.gender());
         if (toad.birthday() != null)
             oldToad.setBirthday(toad.birthday());
