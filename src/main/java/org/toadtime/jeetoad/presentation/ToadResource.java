@@ -58,15 +58,11 @@ public class ToadResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response createNewToad(@Valid @NotNull CreateToad toad) {
-        if (toad == null)
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity("Toad cannot be null").build();
-
         Toad newToad = toadService.createToad(toad);
-        log.info("Creating new toad: " + newToad);
-        return Response
-                .status(Response.Status.CREATED)
+//        log.info("Creating new toad: " + newToad);
+        return Response.status(Response.Status.CREATED)
                 .header("Location", "/api/toads/" + newToad.getId())
                 .build();
     }

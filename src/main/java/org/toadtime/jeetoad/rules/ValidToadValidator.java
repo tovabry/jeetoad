@@ -2,20 +2,20 @@ package org.toadtime.jeetoad.rules;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
-import org.toadtime.jeetoad.dto.ToadInterface;
+import org.toadtime.jeetoad.dto.CreateToad;
 
 
-public class ValidToadValidator implements ConstraintValidator<ValidToad, ToadInterface> {
+public class ValidToadValidator implements ConstraintValidator<ValidToad, CreateToad> {
 
     @Override
-    public boolean isValid(ToadInterface toadInterface, ConstraintValidatorContext constraintValidatorContext) {
-        if (toadInterface == null) {
+    public boolean isValid(CreateToad createToad, ConstraintValidatorContext constraintValidatorContext) {
+        if (createToad == null) {
             return false;
         }
         boolean isValid = true;
 
-        isValid &= validateName(toadInterface.name(), constraintValidatorContext);
-        isValid &= validateAge(toadInterface.age(), constraintValidatorContext);
+        isValid &= validateName(createToad.name(), constraintValidatorContext);
+        isValid &= validateAge(createToad.age(), constraintValidatorContext);
 
         return isValid;
     }
@@ -30,7 +30,7 @@ public class ValidToadValidator implements ConstraintValidator<ValidToad, ToadIn
         return true;
     }
 
-    private boolean validateAge(int age, ConstraintValidatorContext context) {
+    private boolean validateAge(Integer age, ConstraintValidatorContext context) {
         if (age < 0) {
             context.buildConstraintViolationWithTemplate("The age must not be negative");
         }

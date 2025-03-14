@@ -18,7 +18,7 @@ public interface ToadRepository extends CrudRepository<Toad, Long> {
     Optional<Toad> findByName(String name);
 
     @Find
-    List<Toad> findByGender(char gender);
+    List<Toad> findByGender(Character gender);
 
 
 }

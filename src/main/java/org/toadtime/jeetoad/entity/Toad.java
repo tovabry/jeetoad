@@ -9,32 +9,22 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Setter
+@Getter
 @Entity
 public class Toad {
-    @Setter
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    @Setter
-    @Getter
-    private int age;
-    @Getter
-    @Setter
+
+    private Integer age;
     @NotBlank
     private String name;
-    @Setter
-    @Getter
-    private int weight;
-    @Getter
-    @Setter
-    private char gender;
+    private Integer weight;
+    private Character gender;
     @Size(max = 1000)
-    @Getter
-    @Setter
     private String description;
-    @Getter
-    @Setter
     private LocalDate birthday;
 
 

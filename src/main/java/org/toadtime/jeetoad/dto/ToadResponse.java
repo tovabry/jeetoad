@@ -8,7 +8,7 @@ import java.time.LocalDate;
 /**
  * DTO for {@link org.toadtime.jeetoad.entity.Toad}
  */
-public record ToadResponse(Long id, int age, char gender, String name, int weight,
+public record ToadResponse(Long id, Integer age, Character gender, String name, Integer weight,
                            @Size(max = 1000) String description,
                            LocalDate birthday) {
 

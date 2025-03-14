@@ -2,6 +2,7 @@ package org.toadtime.jeetoad.mapper;
 
 import org.toadtime.jeetoad.dto.CreateToad;
 import org.toadtime.jeetoad.dto.ToadResponse;
+import org.toadtime.jeetoad.dto.UpdateToad;
 import org.toadtime.jeetoad.entity.Toad;
 
 public class ToadMapper {
@@ -37,5 +38,20 @@ public class ToadMapper {
                 toad.getDescription(),
                 toad.getBirthday()
         );
+    }
+
+    public static void map(UpdateToad updateToad, Toad existingToad) {
+        if(updateToad.name() != null)
+            existingToad.setName(updateToad.name());
+        if (updateToad.description() != null)
+            existingToad.setDescription(updateToad.description());
+        if (updateToad.birthday() != null)
+            existingToad.setBirthday(updateToad.birthday());
+        if (updateToad.age() != null)
+            existingToad.setAge(updateToad.age());
+        if(updateToad.gender() != null)
+            existingToad.setGender(updateToad.gender());
+        if(updateToad.weight() != null)
+            existingToad.setWeight(updateToad.weight());
     }
 }

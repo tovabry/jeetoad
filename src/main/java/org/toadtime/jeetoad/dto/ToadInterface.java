@@ -6,9 +6,9 @@ import java.time.LocalDate;
 
 public interface ToadInterface {
     String name();
-    int age();
-    int weight();
-    char gender();
+    Integer age();
+    Integer weight();
+    Character gender();
     String description();
     LocalDate birthday();
 }
