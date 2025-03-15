@@ -158,7 +158,7 @@ class ToadServiceTest {
     }
 
     @Test
-    void testGetToadByName() {
+    void getToadByName() {
         // Arrange
         Toad toad = new Toad();
         toad.setId(1L);

@@ -28,19 +28,7 @@ public class ToadMapper {
         return newToad;
     }
 
-    public static ToadResponse toToadResponse(Toad toad) {
-        return new ToadResponse(
-                toad.getId(),
-                toad.getAge(),
-                toad.getGender(),
-                toad.getName(),
-                toad.getWeight(),
-                toad.getDescription(),
-                toad.getBirthday()
-        );
-    }
-
-    public static void map(UpdateToad updateToad, Toad existingToad) {
+    public static Toad map(UpdateToad updateToad, Toad existingToad) {
         if(updateToad.name() != null)
             existingToad.setName(updateToad.name());
         if (updateToad.description() != null)
@@ -53,5 +41,6 @@ public class ToadMapper {
             existingToad.setGender(updateToad.gender());
         if(updateToad.weight() != null)
             existingToad.setWeight(updateToad.weight());
+        return existingToad;
     }
 }
