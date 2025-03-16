@@ -75,6 +75,13 @@ public class ToadResource {
         return Response.noContent().build();
     }
 
+    @DELETE
+    @Path("delete/{id}")
+    public Response deleteToad(@PathParam("id") Long id) {
+        toadService.deleteToad(id);
+        return Response.noContent().build();
+    }
+
 }
 
 

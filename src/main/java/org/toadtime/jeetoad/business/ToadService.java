@@ -80,4 +80,10 @@ public class ToadService {
             oldToad.setBirthday(toad.birthday());
         repository.update(oldToad);
     }
+
+    public void deleteToad(Long id){
+        var toad = repository.findById(id).orElseThrow(() ->
+                new NotFound("Toad with id: " + id + " not found..."));
+        repository.delete(toad);
+    }
 }
