@@ -1,5 +1,6 @@
 package org.toadtime.jeetoad.rules;
 
+import jakarta.persistence.TypedQuery;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.toadtime.jeetoad.dto.CreateToad;
@@ -32,10 +33,16 @@ public class ValidToadValidator implements ConstraintValidator<ValidToad, Create
 
     private boolean validateAge(Integer age, ConstraintValidatorContext context) {
         if (age < 0) {
-            context.buildConstraintViolationWithTemplate("The age must not be negative");
+            context.buildConstraintViolationWithTemplate("The age must not be negative")
+            .addPropertyNode("age")
+            .addConstraintViolation();
+            return false;
         }
         if (age > 40){
-            context.buildConstraintViolationWithTemplate("I don't believe the toad really is that old.");
+            context.buildConstraintViolationWithTemplate("I don't believe the toad really is that old.")
+            .addPropertyNode("age")
+            .addConstraintViolation();
+            return false;
         }
         return true;
     }

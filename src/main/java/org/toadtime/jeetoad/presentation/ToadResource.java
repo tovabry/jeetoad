@@ -61,7 +61,7 @@ public class ToadResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response createNewToad(@Valid @NotNull CreateToad toad) {
         Toad newToad = toadService.createToad(toad);
-//        log.info("Creating new toad: " + newToad);
+        log.info("Creating new toad: " + newToad);
         return Response.status(Response.Status.CREATED)
                 .header("Location", "/api/toads/" + newToad.getId())
                 .build();

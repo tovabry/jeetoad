@@ -12,14 +12,17 @@ import java.util.Objects;
 @Setter
 @Getter
 @Entity
+@Table(name = "Toad", uniqueConstraints = @UniqueConstraint(columnNames = {"name", "age"}))
 public class Toad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "age")
     private Integer age;
     @NotBlank
+    @Column(name = "name", nullable = false)
     private String name;
     private Integer weight;
     private Character gender;
