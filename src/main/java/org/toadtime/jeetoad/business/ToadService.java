@@ -58,6 +58,9 @@ public class ToadService {
 
     public Toad createToad(CreateToad toad) {
         var newToad = map(toad);
+        if(toad.gender() != null){
+            newToad.setGender(Character.toLowerCase(newToad.getGender()));
+        }
         newToad = repository.insert(newToad);
         return newToad;
     }
@@ -73,7 +76,7 @@ public class ToadService {
         if (toad.weight() != null)
             oldToad.setWeight(toad.weight());
         if (toad.gender() != null)
-            oldToad.setGender(toad.gender());
+            oldToad.setGender((Character.toLowerCase(toad.gender())));
         if (toad.birthday() != null)
             oldToad.setBirthday(toad.birthday());
         repository.update(oldToad);

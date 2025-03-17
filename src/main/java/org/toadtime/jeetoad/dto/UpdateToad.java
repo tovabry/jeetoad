@@ -1,5 +1,6 @@
 package org.toadtime.jeetoad.dto;
 
+import jakarta.persistence.Convert;
 import jakarta.validation.constraints.*;
 import org.toadtime.jeetoad.rules.ValidToad;
 
@@ -10,6 +11,7 @@ public record UpdateToad (
 String name,
 @Positive(message = "Age must be positive")
 Integer age,
+@Convert
 Character gender,
 Integer weight,
 @PastOrPresent(message = "The toad must have ben born yet") LocalDate birthday,

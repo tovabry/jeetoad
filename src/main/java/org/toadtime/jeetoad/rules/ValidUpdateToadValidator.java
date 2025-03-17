@@ -14,6 +14,8 @@ public class ValidUpdateToadValidator implements ConstraintValidator<ValidToad, 
         boolean isValid = true;
         isValid &= validateName(updateToad.name(), constraintValidatorContext);
         isValid &= validateAge(updateToad.age(), constraintValidatorContext);
+        isValid &= validateGender(updateToad.gender(), constraintValidatorContext);
+        isValid &= validateWeight(updateToad.weight(), constraintValidatorContext);
 
 
         return isValid;
@@ -54,5 +56,42 @@ public class ValidUpdateToadValidator implements ConstraintValidator<ValidToad, 
         }
         return true;
     }
+
+    private boolean validateWeight(Integer weight, ConstraintValidatorContext context) {
+        if (weight == null) {
+            context.disableDefaultConstraintViolation();
+            return true;
+        }
+        if (weight < 0) {
+            context.buildConstraintViolationWithTemplate("The weight must not be negative")
+                    .addPropertyNode("weight")
+                    .addConstraintViolation();
+            return false;
+        }
+        if (weight > 100) {
+            context.buildConstraintViolationWithTemplate("You need to take this toad to the veterinarian, it's obese")
+                    .addPropertyNode("weight")
+                    .addConstraintViolation();
+            return false;
+        }
+        return true;
+    }
+
+    private boolean validateGender(Character gender, ConstraintValidatorContext context) {
+        if (gender == null) {
+            context.disableDefaultConstraintViolation();
+            return true;
+        }
+        gender = Character.toLowerCase(gender);
+
+        if (gender != 'm' && gender != 'f') {
+            context.buildConstraintViolationWithTemplate("Gender must be 'm' or 'f'")
+                    .addPropertyNode("gender")
+                    .addConstraintViolation();
+            return false;
+        }
+        return true;
+    }
+
 
 }
