@@ -17,10 +17,7 @@ public class ValidUpdateToadValidator implements ConstraintValidator<ValidToad, 
         isValid &= validateGender(updateToad.gender(), constraintValidatorContext);
         isValid &= validateWeight(updateToad.weight(), constraintValidatorContext);
 
-
         return isValid;
-
-
     }
 
     private boolean validateName(String name, ConstraintValidatorContext context) {
@@ -92,6 +89,5 @@ public class ValidUpdateToadValidator implements ConstraintValidator<ValidToad, 
         }
         return true;
     }
-
 
 }
