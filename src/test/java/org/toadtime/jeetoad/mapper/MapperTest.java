@@ -17,7 +17,7 @@ public class MapperTest {
         Toad toad = new Toad();
         toad.setId(1L);
         toad.setName("Toad1");
-        toad.setAge(5);
+        toad.setWarts(5);
         toad.setWeight(10);
         toad.setGender('M');
         toad.setDescription("Description");
@@ -27,7 +27,7 @@ public class MapperTest {
 
         assertEquals(1L, result.id());
         assertEquals("Toad1", result.name());
-        assertEquals(5, result.age());
+        assertEquals(5, result.Warts());
         assertEquals(10, result.weight());
         assertEquals('M', result.gender());
         assertEquals("Description", result.description());
@@ -42,7 +42,7 @@ public class MapperTest {
 
         assertNotNull(result);
         assertEquals("Toad1", result.getName());
-        assertEquals(5, result.getAge());
+        assertEquals(5, result.getWarts());
         assertEquals(10, result.getWeight());
         assertEquals('M', result.getGender());
         assertEquals("Description", result.getDescription());
@@ -54,7 +54,7 @@ public class MapperTest {
         Toad oldToad = new Toad();
         oldToad.setId(1L);
         oldToad.setName("Simon");
-        oldToad.setAge(5);
+        oldToad.setWarts(5);
         oldToad.setWeight(10);
         oldToad.setGender('M');
         oldToad.setDescription("Description");
@@ -64,7 +64,7 @@ public class MapperTest {
         Toad result = ToadMapper.map(newToad, oldToad);
         assertNotNull(result);
         assertEquals("Catrin", result.getName());
-        assertEquals(2, result.getAge());
+        assertEquals(2, result.getWarts());
         assertEquals(4, result.getWeight());
         assertEquals('F', result.getGender());
         assertEquals("Description", result.getDescription());

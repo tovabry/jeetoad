@@ -12,14 +12,14 @@ public class ToadMapper {
     public static ToadResponse map(Toad toad) {
         if(toad == null)
             return null;
-        return new ToadResponse(toad.getId(), toad.getAge(), toad.getGender(), toad.getName(), toad.getWeight(), toad.getDescription(), toad.getBirthday());
+        return new ToadResponse(toad.getId(), toad.getWarts(), toad.getGender(), toad.getName(), toad.getWeight(), toad.getDescription(), toad.getBirthday());
     }
 
     public static Toad map(CreateToad toad) {
         if(toad == null)
             return null;
         Toad newToad = new Toad();
-        newToad.setAge(toad.age());
+        newToad.setWarts(toad.warts());
         newToad.setGender(toad.gender());
         newToad.setName(toad.name());
         newToad.setWeight(toad.weight());
@@ -35,8 +35,8 @@ public class ToadMapper {
             existingToad.setDescription(updateToad.description());
         if (updateToad.birthday() != null)
             existingToad.setBirthday(updateToad.birthday());
-        if (updateToad.age() != null)
-            existingToad.setAge(updateToad.age());
+        if (updateToad.warts() != null)
+            existingToad.setWarts(updateToad.warts());
         if(updateToad.gender() != null)
             existingToad.setGender(updateToad.gender());
         if(updateToad.weight() != null)

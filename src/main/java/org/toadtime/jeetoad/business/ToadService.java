@@ -69,8 +69,8 @@ public class ToadService {
         var oldToad = repository.findById(id).orElseThrow(() -> new NotFound("Toad with id " + id + " not found"));
         if(toad.name() != null)
             oldToad.setName(toad.name());
-        if(toad.age() != null)
-            oldToad.setAge(toad.age());
+        if(toad.warts() != null)
+            oldToad.setWarts(toad.warts());
         if(toad.description() != null)
             oldToad.setDescription(toad.description());
         if (toad.weight() != null)

@@ -80,7 +80,7 @@ class ToadServiceTest {
         CreateToad createToad = new CreateToad("Toad1", 5, 'm', 4, LocalDate.now(), "cute but deadly");
         Toad toad = new Toad();
         toad.setName("Toad1");
-        toad.setAge(5);
+        toad.setWarts(5);
         toad.setWeight(10);
         toad.setGender('m');
         toad.setDescription("cute but deadly");
@@ -91,7 +91,7 @@ class ToadServiceTest {
         Toad result = toadService.createToad(createToad);
 
         assertEquals("Toad1", result.getName());
-        assertEquals(5, result.getAge());
+        assertEquals(5, result.getWarts());
         assertEquals(10, result.getWeight());
         assertEquals('m', result.getGender());
         assertEquals("cute but deadly", result.getDescription());
@@ -104,7 +104,7 @@ class ToadServiceTest {
         Toad oldToad = new Toad();
         oldToad.setId(1L);
         oldToad.setName("Old Toad");
-        oldToad.setAge(5);
+        oldToad.setWarts(5);
         oldToad.setDescription("Old description");
         oldToad.setWeight(10);
         oldToad.setGender('M');
@@ -117,7 +117,7 @@ class ToadServiceTest {
         toadService.updateToad(updateToad, 1L);
 
         assertEquals("New Toad", oldToad.getName());
-        assertEquals(7, oldToad.getAge());
+        assertEquals(7, oldToad.getWarts());
         assertEquals("New description", oldToad.getDescription());
         assertEquals(15, oldToad.getWeight());
         assertEquals('f', oldToad.getGender());
@@ -163,7 +163,7 @@ class ToadServiceTest {
         Toad toad = new Toad();
         toad.setId(1L);
         toad.setName("Toad1");
-        toad.setAge(5);
+        toad.setWarts(5);
         toad.setWeight(10);
         toad.setGender('M');
         toad.setDescription("Description");
@@ -175,7 +175,7 @@ class ToadServiceTest {
 
         assertEquals(1L, result.id());
         assertEquals("Toad1", result.name());
-        assertEquals(5, result.age());
+        assertEquals(5, result.Warts());
         assertEquals(10, result.weight());
         assertEquals('M', result.gender());
         assertEquals("Description", result.description());

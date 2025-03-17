@@ -15,7 +15,7 @@ public class ValidCreateToadValidator implements ConstraintValidator<ValidToad, 
         boolean isValid = true;
 
         isValid &= validateName(createToad.name(), constraintValidatorContext);
-        isValid &= validateAge(createToad.age(), constraintValidatorContext);
+        isValid &= validateWarts(createToad.warts(), constraintValidatorContext);
         isValid &= validateGender(createToad.gender(), constraintValidatorContext);
         isValid &= validateWeight(createToad.weight(), constraintValidatorContext);
 
@@ -32,16 +32,16 @@ public class ValidCreateToadValidator implements ConstraintValidator<ValidToad, 
         return true;
     }
 
-    private boolean validateAge(Integer age, ConstraintValidatorContext context) {
-        if (age < 0) {
-            context.buildConstraintViolationWithTemplate("The age must not be negative")
-                    .addPropertyNode("age")
+    private boolean validateWarts(Integer warts, ConstraintValidatorContext context) {
+        if (warts < 0) {
+            context.buildConstraintViolationWithTemplate("Warts must be positive")
+                    .addPropertyNode("warts")
                     .addConstraintViolation();
             return false;
         }
-        if (age > 40) {
-            context.buildConstraintViolationWithTemplate("I don't believe the toad really is that old.")
-                    .addPropertyNode("age")
+        if (warts > 100) {
+            context.buildConstraintViolationWithTemplate("That's too many warts")
+                    .addPropertyNode("warts")
                     .addConstraintViolation();
             return false;
         }

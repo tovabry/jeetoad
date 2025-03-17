@@ -9,9 +9,8 @@ import java.time.LocalDate;
 @ValidToad(message = "Unable to update toad")
 public record UpdateToad (
 String name,
-@Positive(message = "Age must be positive")
-Integer age,
-@Convert
+@Positive(message = "Warts must be positive")
+Integer warts,
 Character gender,
 Integer weight,
 @PastOrPresent(message = "The toad must have ben born yet") LocalDate birthday,

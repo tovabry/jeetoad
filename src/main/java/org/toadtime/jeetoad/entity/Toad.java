@@ -13,7 +13,7 @@ import java.util.Objects;
 @Getter
 @Entity
 @Table(name = "Toad", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"name", "age"}),
+        @UniqueConstraint(columnNames = {"name", "warts"}),
         @UniqueConstraint(columnNames = {"name", "birthday"})
 })
 public class Toad {
@@ -21,9 +21,8 @@ public class Toad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-
-    @Column(name = "age")
-    private Integer age;
+    @Column(name = "warts")
+    private Integer warts;
     @NotBlank
     @Column(name = "name", nullable = false)
     private String name;
@@ -50,7 +49,7 @@ public class Toad {
     public String toString() {
         return "Toad{" +
                 "id=" + id +
-                ", age=" + age +
+                ", warts=" + warts +
                 ", name='" + name + '\'' +
                 ", weight=" + weight +
                 ", gender=" + gender +

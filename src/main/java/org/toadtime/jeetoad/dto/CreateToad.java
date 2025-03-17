@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @ValidToad(message= "Unable to create toad")
 public record CreateToad(
         @NotBlank @NotNull String name,
-        @NotNull @Positive(message = "age must be positive") Integer age,
+        @NotNull @Positive(message = "Warts must be positive") Integer warts,
         @NotNull Character gender,
         @NotNull Integer weight,
         @NotNull @PastOrPresent(message = "The toad must have ben born yet") LocalDate birthday,
