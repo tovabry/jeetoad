@@ -1,6 +1,5 @@
 package org.toadtime.jeetoad.rules;
 
-import jakarta.persistence.TypedQuery;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import org.toadtime.jeetoad.dto.CreateToad;

@@ -2,10 +2,8 @@ package org.toadtime.jeetoad.persistence;
 
 import jakarta.data.repository.CrudRepository;
 import jakarta.data.repository.Find;
-import jakarta.data.repository.Query;
 import jakarta.data.repository.Repository;
 
-import jakarta.enterprise.context.ApplicationScoped;
 import org.toadtime.jeetoad.entity.Toad;
 
 import java.util.List;

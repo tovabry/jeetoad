@@ -2,8 +2,6 @@ package org.toadtime.jeetoad.business;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import org.toadtime.jeetoad.dto.CreateToad;
 import org.toadtime.jeetoad.dto.ToadResponse;
 import org.toadtime.jeetoad.dto.UpdateToad;
