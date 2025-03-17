@@ -47,7 +47,7 @@ public class ValidUpdateToadValidator implements ConstraintValidator<ValidToad, 
         }
         if (warts > 100) {
             context.buildConstraintViolationWithTemplate("That's too many warts")
-                    .addPropertyNode("age")
+                    .addPropertyNode("warts")
                     .addConstraintViolation();
             return false;
         }

@@ -7,7 +7,6 @@ WORKDIR /opt/jeeToad
 COPY . /opt/jeeToad
 RUN mvn package
 
-
 FROM eclipse-temurin:${jdk}-${dist}
 
 # Wildfly and PostgreSQL versions
@@ -63,7 +62,7 @@ COPY --chown=jboss:0 docker/entrypoint.sh /opt/jboss/
 RUN chmod +x /opt/jboss/entrypoint.sh
 
 # Copy your application WAR file
-COPY --chown=jboss:0 --from=BUILD opt/jeeToad/target/*.war ${JBOSS_HOME}/standalone/deployments/
+COPY --chown=jboss:0 --from=build /opt/jeeToad/target/*.war ${JBOSS_HOME}/standalone/deployments/
 
 # Set safe default environment variables
 ENV DB_HOST=db-host-placeholder \
