@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = ValidToadValidator.class)
+@Constraint(validatedBy = {ValidCreateToadValidator.class, ValidUpdateToadValidator.class})
 
 public @interface ValidToad {
     String message() default "Not a valid toad";

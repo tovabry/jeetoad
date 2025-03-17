@@ -5,7 +5,7 @@ import jakarta.validation.ConstraintValidatorContext;
 import org.toadtime.jeetoad.dto.CreateToad;
 
 
-public class ValidToadValidator implements ConstraintValidator<ValidToad, CreateToad> {
+public class ValidCreateToadValidator implements ConstraintValidator<ValidToad, CreateToad> {
 
     @Override
     public boolean isValid(CreateToad createToad, ConstraintValidatorContext constraintValidatorContext) {

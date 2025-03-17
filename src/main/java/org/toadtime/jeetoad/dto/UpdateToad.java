@@ -1,13 +1,14 @@
 package org.toadtime.jeetoad.dto;
 
 import jakarta.validation.constraints.*;
+import org.toadtime.jeetoad.rules.ValidToad;
 
 import java.time.LocalDate;
 
-
+@ValidToad(message = "Unable to update toad")
 public record UpdateToad (
 String name,
-@Positive(message = "age must be positive")
+@Positive(message = "Age must be positive")
 Integer age,
 Character gender,
 Integer weight,
